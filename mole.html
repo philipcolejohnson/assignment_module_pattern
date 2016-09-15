@@ -2,11 +2,18 @@
 <html>
 <head>
   <title>Modules</title>
+  <link href='mole.css' rel='stylesheet'>
   <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="script.js"></script>
-  <script src="secondScript.js"></script>
+  <script src='view.js'></script>
+  <script src='whack.js'></script>
 </head>
 <body>
-
+  <div class='container'>
+  </div>
 </body>
+<script>
+$(document).ready(function() {
+  GAME.whack.init();
+});
+</script>
 </html>

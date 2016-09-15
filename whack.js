@@ -4,18 +4,23 @@ GAME.whack = (function(view) {
   var _holes, _molePos;
 
   var init = function() {
-    _holes = Array.new(8);
+    _holes = new Array(8);
     _molePos = 0;
-    view.init(_moleAppears);
+    view.init();
   };
 
-  var _moleAppears = function() {
-    //something with mole
+  var getMole = function () {
+    return _molePos;
   };
 
+  var getHoles = function () {
+    return _holes;
+  };
 
   return {
     init: init,
+    getMole: getMole,
+    getHoles: getHoles
   };
 
 })(GAME.view);
