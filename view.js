@@ -13,10 +13,11 @@ GAME.view = (function($) {
 
   var _alternateShow = function() {
     _showToggle = !_showToggle;
+    var randomNum = Math.floor(Math.random() * 500) + 200;
     if (_showToggle) {
-      _timeout = setTimeout(_moleHidden,1000);
+      _timeout = setTimeout(_moleHidden,randomNum);
     } else {
-      _timeout = setTimeout(_moleAppears,2000);
+      _timeout = setTimeout(_moleAppears,randomNum*2);
     }
     _render();
   };
