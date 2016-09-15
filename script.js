@@ -1,10 +1,15 @@
 var calcModule = (function() {
   var stub = {};
 
-  var memo;
+  var _memo;
 
   stub.getMemo = function () {
-      return memo;
+      return _memo;
+  };
+
+  stub.setMemo = function (newMemo) {
+    _memo = newMemo;
+    return _memo;
   };
 
   var _taunt = "You couldn't do that yourself, I'll bet!";
@@ -17,9 +22,9 @@ var calcModule = (function() {
   };
 
   stub.add = function(x, y) {
-    memo = x + y;
+    _memo = x + y;
     _showTaunt();
-    return(memo);
+    return(_memo);
   };
 
   return stub;
