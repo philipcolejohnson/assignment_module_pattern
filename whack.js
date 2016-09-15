@@ -1,22 +1,26 @@
 var GAME = GAME || {};
 
 GAME.whack = (function(view) {
-  var _holes, _molePos;
+  var _holes, _mole;
   var _score = 0;
 
   var init = function() {
     _holes = new Array(8);
 
-    _molePos = 0;
+    _mole = new Mole();
     view.init();
   };
 
+  var Mole = function() {
+    this.molePos = Math.floor(Math.random()*9)
+  };
+
   var getMole = function () {
-    return _molePos;
+    return _mole;
   };
 
   var changeMole = function () {
-    _molePos = Math.floor(Math.random()*9);
+    _mole = new Mole();
   };
 
   var getHoles = function () {

@@ -13,7 +13,7 @@ GAME.view = (function($) {
 
   var _alternateShow = function() {
     _showToggle = !_showToggle;
-    var randomNum = Math.floor(Math.random() * 500) + 200;
+    var randomNum = Math.floor(Math.random() * 500) + 300;
     if (_showToggle) {
       _timeout = setTimeout(_moleHidden,randomNum);
     } else {
@@ -49,7 +49,7 @@ GAME.view = (function($) {
     $container.empty();
     for (var i = 0; i < 8; i++) {
       $divHole = $("<div class='hole'></div>");
-      if (i === GAME.whack.getMole() && _showToggle) {
+      if (i === GAME.whack.getMole().molePos && _showToggle) {
         $divHole.append("<div class='mole'></div>");
       }
       $container.append($divHole);
