@@ -14,25 +14,28 @@ GAME.view = (function($) {
   var _alternateShow = function() {
     _showToggle = !_showToggle;
     if (_showToggle) {
-      _timeout = setTimeout(_moleHidden,200);
+      _timeout = setTimeout(_moleHidden,1000);
     } else {
-      _timeout = setTimeout(_moleAppears,200);
+      _timeout = setTimeout(_moleAppears,2000);
     }
     _render();
   };
 
   var _moleAppears = function() {
-    _render();
-    $('div.mole').on('click', _clickHandler);
     _alternateShow();
+    $('div.mole').on('click', _clickHandler);
   };
 
   var _moleHidden = function() {
+    GAME.whack.changeMole();
     _alternateShow();
   };
 
   var _clickHandler = function(ev) {
     clearTimeout(_timeout);
+    GAME.whack.changeMole();
+    GAME.whack.incrementScore();
+    _render();
     _alternateShow();
   };
 
@@ -43,13 +46,14 @@ GAME.view = (function($) {
   var _render = function() {
     $container = $('div.container');
     $container.empty();
-    GAME.whack.getHoles().forEach(function(hole) {
+    for (var i = 0; i < 8; i++) {
       $divHole = $("<div class='hole'></div>");
-      if (hole === GAME.whack.getMole() && _showToggle) {
+      if (i === GAME.whack.getMole() && _showToggle) {
         $divHole.append("<div class='mole'></div>");
       }
       $container.append($divHole);
-    });
+    }
+    $container.append(['<div class=\'score\'>','score: ',GAME.whack.getScore(),'</div>'].join(''));
   };
 
   return {

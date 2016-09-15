@@ -1,13 +1,17 @@
-.hole {
+.hole, .mole {
   width: 50px;
   height: 50px;
   border-radius: 25px;
+}
+
+.hole {
   background-color: black;
+  display: inline-block;
 }
 
 .mole {
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
+  background-image: url('http://1.bp.blogspot.com/_ifNvMe6zXXc/S8JaA-P5OKI/AAAAAAAABPE/C1aNwsCbLl8/s1600/star_nosed_mole-s1360x673-2274.jpg');
+  background-size: cover;
+  background-position: center;
   background-color: brown;
 }
