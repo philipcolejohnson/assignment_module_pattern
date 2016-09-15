@@ -1,7 +1,9 @@
 var calcModule = (function() {
+  var stub = {};
+
   var memo;
 
-  var getMemo = function () {
+  stub.getMemo = function () {
       return memo;
   };
 
@@ -14,16 +16,13 @@ var calcModule = (function() {
     }
   };
 
-  var add = function(x, y) {
+  stub.add = function(x, y) {
     memo = x + y;
     _showTaunt();
     return(memo);
   };
 
-  return {
-    add: add,
-    getMemo: getMemo
-  };
+  return stub;
 
 
 })();
