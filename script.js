@@ -1,4 +1,6 @@
-var calcModule = (function() {
+var PRACTICE = PRACTICE || {};
+
+PRACTICE.calcModule = (function() {
   var stub = {};
 
   var _memo;
@@ -34,11 +36,11 @@ var calcModule = (function() {
 
 
 // Can't see private variables because they're not in the scope of the returned object.
-console.log(calcModule);
+console.log(PRACTICE.calcModule);
 
-console.log(calcModule.add(1,2));
-console.log(calcModule.getMemo());
-memo = calcModule.getMemo();
+console.log(PRACTICE.calcModule.add(1,2));
+console.log(PRACTICE.calcModule.getMemo());
+memo = PRACTICE.calcModule.getMemo();
 memo++;
 // getMemo() only returns a copy. State is encapsulated.
-console.log(calcModule.getMemo());
+console.log(PRACTICE.calcModule.getMemo());

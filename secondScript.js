@@ -1,4 +1,6 @@
-var interfaceModule = (function (dependency) {
+var PRACTICE = PRACTICE || {};
+
+PRACTICE.interfaceModule = (function (dependency) {
   var stub = {};
 
   var _memo;
@@ -19,8 +21,9 @@ var interfaceModule = (function (dependency) {
 
   return stub;
 
-})(calcModule);
+})(PRACTICE.calcModule);
 
-console.log([interfaceModule.getMemo().toString()," from interfaceModule"].join(''));
-interfaceModule.subtract(2,1);
-console.log([interfaceModule.getMemo().toString()," from interfaceModule", " after subtracting"].join(''));
+PRACTICE.calcModule.setMemo(5);
+console.log([PRACTICE.interfaceModule.getMemo().toString()," from interfaceModule"].join(''));
+PRACTICE.interfaceModule.subtract(2,1);
+console.log([PRACTICE.interfaceModule.getMemo().toString()," from interfaceModule", " after subtracting"].join(''));
