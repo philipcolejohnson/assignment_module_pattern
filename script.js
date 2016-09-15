@@ -29,6 +29,9 @@ var calcModule = (function() {
 })();
 
 
+// Can't see private variables because they're not in the scope of the returned object.
+console.log(calcModule);
+
 console.log(calcModule.add(1,2));
 console.log(calcModule.getMemo());
 memo = calcModule.getMemo();
